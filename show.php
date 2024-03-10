@@ -22,7 +22,9 @@ require_once 'inc/header.php';
     </p>
 
     <div class="content mt-4 prose prose-sm">
-        <?= $article['content'] ?>
+
+        <?= nl2br(html_entity_decode($article['content']))
+        ?>
     </div>
 </div>
 

@@ -1,4 +1,6 @@
 <?php
+
+// function to read or get the data file 
 if (!function_exists('getArticles')) {
     function getArticles()
     {
@@ -8,6 +10,40 @@ if (!function_exists('getArticles')) {
     }
 }
 
+// function to create content
+if (!function_exists('addArticle')) {
+    function addArticle($data)
+    {
+        $items = getArticles();
+        $items[] = $data;
+
+        file_put_contents(
+            BASE_DIR . DS . 'data/articles.json',
+            json_encode($items)
+        );
+    }
+}
+
+
+// function to create content
+if (!function_exists('updateArticle')) {
+    function updateArticle($slug, $data)
+    {
+        $items = array_map(function ($item) use ($slug, $data) {
+            if ($item['slug'] == $slug) {
+                return $data;
+            }
+            return $item;
+        }, getArticles());
+
+        file_put_contents(
+            BASE_DIR . DS . 'data/articles.json',
+            json_encode($items)
+        );
+    }
+}
+
+// function to delete content
 if (!function_exists('deleteArticle')) {
     function deleteArticle($slug)
     {
@@ -23,7 +59,7 @@ if (!function_exists('deleteArticle')) {
     }
 }
 
-
+// function for get article by slug for showing full content
 if (!function_exists('getArticleBy')) {
     function getArticleBy($slug)
     {
@@ -37,6 +73,7 @@ if (!function_exists('getArticleBy')) {
     }
 }
 
+// function get or read user data
 if (!function_exists('getUsers')) {
     function getUsers()
     {
@@ -46,6 +83,7 @@ if (!function_exists('getUsers')) {
     }
 }
 
+// function for add users add put them to user data
 if (!function_exists('addUser')) {
     function addUser($name, $username, $password)
     {
@@ -59,6 +97,7 @@ if (!function_exists('addUser')) {
     }
 }
 
+// function for searchin user in data file 
 if (!function_exists('getUserBy')) {
     function getUserBy($username)
     {

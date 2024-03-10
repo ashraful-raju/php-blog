@@ -57,3 +57,10 @@ if (!function_exists('senitize')) {
         return filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
     }
 }
+if (!function_exists('generateslug')) {
+    function generateSlug($title)
+    {
+        // Convert title to lowercase and replace spaces with dashes
+        return strtolower(str_replace(' ', '-', trim($title)));
+    }
+}
