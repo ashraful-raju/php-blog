@@ -6,7 +6,7 @@ $article = getArticleBy($_GET['slug'] ?? '');
 ?>
 <div>
     <h2 class="mx-auto text-center text-xl font-bold">Edit your Article</h2>
-    <form class="max-w-xl  mx-auto" action="/actions/post-update.php?slug=<?= $article['slug'] ?>" method="post">
+    <form class="max-w-xl  mx-auto" action="/actions/post-update.php?slug=<?= $article['slug'] ?>" method="post" enctype="multipart/form-data">
         <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
         <input type="text" id="title" class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title if your article" name="title" value="<?= $article['title'] ?>" required />
 
@@ -16,6 +16,15 @@ $article = getArticleBy($_GET['slug'] ?? '');
 
         <label for="content" class="block mb-2 text-sm font-medium text-gray-900 ">Your Content</label>
         <textarea id="content" name="content" rows="4" class="mb-2 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write Your Content....."><?= $article['content'] ?></textarea>
+
+
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="cover-img">Upload files</label>
+        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none" name="image" id="cover-img" accept="image/*" type="file" />
+        <p class="mt-1 text-sm text-gray-500" id="file_input_help">SVG, PNG, JPG or GIF.</p>
+
+        <?php if ($article['image']) : ?>
+            <img class="h-48" src="<?= $article['image'] ?>" alt="Cover photo">
+        <?php endif; ?>
 
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto mt-5 px-5 py-2.5 text-center ">Update</button>
     </form>

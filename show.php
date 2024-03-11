@@ -11,6 +11,9 @@ require_once 'inc/header.php';
 ?>
 
 <div>
+    <?php if ($article['image']) : ?>
+        <img src="<?= $article['image'] ?>" alt="Cover photo">
+    <?php endif; ?>
     <h2 class="font-bold text-3xl mb-2"><?= $article['title'] ?></h2>
     <p class="excerpt pb-4"><?= $article['excerpt'] ?></p>
 
