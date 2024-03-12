@@ -1,6 +1,6 @@
 </main>
-<footer class="pb-10">
-    <p class="mb-6 block text-center text-sm">&copy; Copyright <?= date('Y') ?></p>
+<footer class="pb-10 pb-4">
+    <p class="mb-4 block text-center text-sm">&copy; Copyright <?= date('Y') ?></p>
 </footer>
 
 

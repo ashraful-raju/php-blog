@@ -4,8 +4,8 @@ require_once '../init.php';
 // add login functionality here
 
 if (is_post()) {
-    $username = senitize($_POST['username']);
-    $password = senitize($_POST['password']);
+    $username = sanitize($_POST['username']);
+    $password = sanitize($_POST['password']);
 
     $user = getUserBy($username);
 

@@ -3,9 +3,9 @@ require_once '../init.php';
 
 
 if (is_post()) {
-    $name = senitize($_POST['name']);
-    $username = senitize($_POST['username']);
-    $password = senitize($_POST['password']);
+    $name = sanitize($_POST['name']);
+    $username = sanitize($_POST['username']);
+    $password = sanitize($_POST['password']);
 
     if ($name && $username && $password && !getUserBy($username)) {
         addUser($name, $username, $password);

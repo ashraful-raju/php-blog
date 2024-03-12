@@ -97,7 +97,7 @@ if (!function_exists('addUser')) {
     }
 }
 
-// function for searchin user in data file 
+// function for searching user in data file 
 if (!function_exists('getUserBy')) {
     function getUserBy($username)
     {

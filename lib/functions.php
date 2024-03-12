@@ -51,8 +51,8 @@ if (!function_exists('redirect')) {
     }
 }
 
-if (!function_exists('senitize')) {
-    function senitize($value)
+if (!function_exists('sanitize')) {
+    function sanitize($value)
     {
         return filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
     }
